@@ -14,22 +14,7 @@ function App() {
   if (loading) return <Loader />
 
   return (
-    <>
-      <Home />
-      <DocsButton />
-    </>
-  )
-}
-
-const DocsButton = () => {
-  return (
-    <a
-      href="/docs"
-      className="fixed bottom-4 left-4 bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-xl shadow-lg transition-all z-50"
-      title="Accéder aux documents"
-    >
-      <FileText className="w-6 h-6" />
-    </a>
+    <Home />
   )
 }
 
