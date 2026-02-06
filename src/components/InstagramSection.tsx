@@ -24,7 +24,7 @@ export function InstagramList() {
 
         {/* Mets ici le lien du compte */}
         <a
-          href="https://www.instagram.com/"
+          href="https://www.instagram.com/bisonblanc7/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-sm font-semibold text-orange-600 hover:text-orange-700 underline visited:text-orange-600"

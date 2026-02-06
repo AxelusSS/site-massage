@@ -26,7 +26,7 @@ export default function Header() {
           </a>
 
           <a
-            href="https://www.instagram.com/"
+            href="https://www.instagram.com/bisonblanc7/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-lg hover:bg-orange-50 text-gray-700 hover:text-orange-600"
