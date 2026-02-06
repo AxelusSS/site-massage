@@ -51,7 +51,7 @@ export default function Services() {
           {services.map((s, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden"
+              className="bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden flex flex-col"
             >
               <div className="w-full h-40 overflow-hidden">
                 <img
@@ -62,7 +62,7 @@ export default function Services() {
                 />
               </div>
 
-              <div className="p-6 flex flex-col h-full">
+              <div className="p-6 flex flex-col flex-1">
                 <div>
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="text-lg font-semibold">{s.title}</h3>
