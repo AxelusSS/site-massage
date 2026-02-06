@@ -5,7 +5,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-orange-100">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-3">
-          <img src="/logo_orange.png" alt="Logo" className="h-10 w-auto" />
+          <img src="/logo.png" alt="Logo" className="h-10 w-auto" />
         </a>
 
         <nav className="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-700">

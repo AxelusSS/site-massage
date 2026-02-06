@@ -3,43 +3,41 @@ const services = [
     title: "Massage détente",
     price: "30€",
     desc: "Relaxation, relâchement des tensions, recentrage.",
-    image:
-      "https://images.pexels.com/photos/6560298/pexels-photo-6560298.jpeg",
+    image: "https://images.pexels.com/photos/6560298/pexels-photo-6560298.jpeg",
     creditLabel: "Photo by Anna Tarazevich",
-    creditUrl:
-      "https://www.pexels.com/photo/a-woman-having-a-stone-massage-6560298/",
+    creditUrl: "https://www.pexels.com/photo/a-woman-having-a-stone-massage-6560298/",
   },
   {
     title: "Massage sportif",
     price: "50€",
     desc: "Récupération, travail musculaire, décontraction.",
-    image:
-      "https://images.pexels.com/photos/6629522/pexels-photo-6629522.jpeg",
+    image: "https://images.pexels.com/photos/6629522/pexels-photo-6629522.jpeg",
     creditLabel: "Photo by Karolina Grabowska (kaboompics.com)",
-    creditUrl:
-      "https://www.pexels.com/photo/woman-during-massage-therapy-6629522/",
+    creditUrl: "https://www.pexels.com/photo/woman-during-massage-therapy-6629522/",
   },
   {
     title: "Reboutement",
     price: "50€ à 200€",
     desc: "Tarif selon l’intensité des tensions et la séance.",
-    image:
-      "https://images.pexels.com/photos/6629530/pexels-photo-6629530.jpeg",
+    image: "https://images.pexels.com/photos/6629530/pexels-photo-6629530.jpeg",
     creditLabel: "Photo by Karolina Grabowska (kaboompics.com)",
-    creditUrl:
-      "https://www.pexels.com/photo/woman-during-massage-therapy-6629530/",
+    creditUrl: "https://www.pexels.com/photo/woman-during-massage-therapy-6629530/",
   },
   {
     title: "Magnétiseur énergétique",
     price: "30€ à 200€+",
     desc: "Tarif selon la pathologie et le travail énergétique.",
-    image:
-      "https://images.pexels.com/photos/6560302/pexels-photo-6560302.jpeg",
+    image: "https://images.pexels.com/photos/6560302/pexels-photo-6560302.jpeg",
     creditLabel: "Photo by Anna Tarazevich",
     creditUrl:
       "https://www.pexels.com/photo/a-person-touching-a-woman-s-back-while-holding-a-basalt-stone-6560302/",
   },
 ]
+
+function formatCreditName(label: string) {
+  // "Photo by X" => "X"
+  return label.replace(/^Photo by\s*/i, "").trim()
+}
 
 export default function Services() {
   return (
@@ -64,36 +62,36 @@ export default function Services() {
                 />
               </div>
 
-              <div className="p-6">
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-lg font-semibold">{s.title}</h3>
-                  <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
-                    {s.price}
-                  </span>
+              <div className="p-6 flex flex-col h-full">
+                <div>
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-lg font-semibold">{s.title}</h3>
+                    <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+                      {s.price}
+                    </span>
+                  </div>
+
+                  <p className="mt-3 text-gray-700 text-sm leading-relaxed">
+                    {s.desc}
+                  </p>
                 </div>
 
-                <p className="mt-3 text-gray-700 text-sm leading-relaxed">
-                  {s.desc}
-                </p>
+                {/* Crédit photo dans la carte */}
+                <div className="mt-auto pt-4">
+                  <span className="text-xs text-gray-400">
+                    By{" "}
+                    <a
+                      href={s.creditUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-orange-600 no-underline visited:text-gray-400"
+                    >
+                      {formatCreditName(s.creditLabel)}
+                    </a>
+                  </span>
+                </div>
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* ✅ Crédits sous la grille */}
-        <div className="mt-8 text-xs text-gray-500 space-y-1">
-          {services.map((s, i) => (
-            <p key={i}>
-              {s.creditLabel}:{" "}
-              <a
-                href={s.creditUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-orange-700"
-              >
-                {s.creditUrl}
-              </a>
-            </p>
           ))}
         </div>
 
