@@ -3,7 +3,7 @@ import About from '../components/About'
 import Associes from '../components/Services'
 import ContactForm from '../components/ContactForm'
 import Header from '../components/Header'
-import NosOffres from '../components/NosOffres'
+
 
 
 
@@ -18,10 +18,6 @@ export default function Home() {
         <Associes />
       </div>
 
-      <div id="tarifs" className="pt-24">
-        <NosOffres />
-      </div>
-      
       <div id="contact" className="pt-24">
         <ContactForm />
       </div>

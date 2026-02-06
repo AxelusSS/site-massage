@@ -2,14 +2,13 @@ import { motion } from "framer-motion"
 
 export default function Loader() {
   return (
-    <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
-      <motion.img
-        src="/logo.png"
-        alt="Logo Cabinet"
-        className="w-256 h-256"
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: [0.5, 1.1, 1] }}
-        transition={{ duration: 1, repeat: Infinity, repeatType: "loop" }}
+    <div className="fixed inset-0 bg-orange-50 flex flex-col items-center justify-center">
+      <img src="/logo.png" alt="Logo" className="w-20 h-20 object-contain mb-6" />
+
+      <motion.div
+        className="w-10 h-10 rounded-full border-4 border-orange-200 border-t-orange-500"
+        animate={{ rotate: 360 }}
+        transition={{ repeat: Infinity, duration: 0.9, ease: "linear" }}
       />
     </div>
   )
