@@ -1,4 +1,22 @@
+const instagramPosts: string[] = [
+  // Mets ici les liens des posts Instagram (publics)
+  // Exemple :
+  // "https://www.instagram.com/p/XXXXXXXXXXX/",
+]
+
+function getPostLabel(url: string) {
+  try {
+    const m = url.match(/instagram\.com\/p\/([^/]+)/i)
+    if (m?.[1]) return `Post ${m[1]}`
+  } catch {
+    // ignore
+  }
+  return "Post Instagram"
+}
+
 export default function About() {
+  const hasPosts = instagramPosts.length > 0
+
   return (
     <section id="about" className="bg-white text-black py-16 px-8 max-w-4xl mx-auto mt-10">
       <h2 className="text-3xl font-bold mb-4">
@@ -7,8 +25,8 @@ export default function About() {
 
       <p className="text-lg text-gray-800 leading-relaxed">
         Auto-entrepreneur spécialisé dans le bien-être et la récupération, je propose des séances adaptées à vos besoins :
-        massage détente, massage sportif, reboutement et soins énergétiques.
-        Chaque rendez-vous est réalisé avec écoute, respect et personnalisation, pour vous aider à retrouver confort et équilibre.
+        massage détente, massage sportif, reboutement et soins énergétiques. Chaque rendez-vous est réalisé avec écoute,
+        respect et personnalisation, pour vous aider à retrouver confort et équilibre.
       </p>
 
       {/* Instagram */}
@@ -16,34 +34,38 @@ export default function About() {
         <div className="flex items-end justify-between gap-4 flex-wrap">
           <h3 className="text-2xl font-semibold text-orange-700">Instagram</h3>
 
-          {/* Remplace le lien par le vrai compte */}
+          {/* Remplace le lien par le vrai compte Instagram */}
           <a
-            href="https://www.instagram.com/"
+            href="https://www.instagram.com/bisonblanc7/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-semibold text-orange-600 hover:text-orange-700 underline"
+            className="text-sm font-semibold text-orange-600 hover:text-orange-700 underline visited:text-orange-600"
           >
-            Voir le compte Instagram
+            Voir le compte
           </a>
         </div>
 
-        <p className="mt-2 text-gray-600 text-sm">
-          Retrouvez des photos, infos et disponibilités directement sur Instagram.
-        </p>
-
-        {/* Zone pour embeds (Option A) */}
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="rounded-2xl bg-orange-50 border border-orange-100 p-5 text-gray-700">
-            <p className="font-semibold mb-2">Post Instagram</p>
-            <p className="text-sm text-gray-600">
-              Colle ici un embed Instagram (post public).  
-              Je peux aussi te brancher un feed automatique via l’API si tu veux.
-            </p>
+        {!hasPosts ? (
+          <p className="mt-4 text-sm text-gray-600 italic">
+            Plus de poste viendrons par le future.
+          </p>
+        ) : (
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {instagramPosts.map((url, idx) => (
+              <a
+                key={idx}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl bg-orange-50 border border-orange-100 p-6 hover:shadow-md transition visited:text-inherit"
+              >
+                <p className="font-semibold text-gray-800">{getPostLabel(url)}</p>
+                <p className="mt-2 text-sm text-gray-600">Ouvrir sur Instagram</p>
+                <p className="mt-3 text-xs text-gray-400 break-all">{url}</p>
+              </a>
+            ))}
           </div>
-
-          <div className="rounded-2xl bg-orange-50 border border-orange-100 p-5" />
-          <div className="rounded-2xl bg-orange-50 border border-orange-100 p-5" />
-        </div>
+        )}
       </div>
     </section>
   )
