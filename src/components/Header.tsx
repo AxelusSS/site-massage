@@ -1,72 +1,54 @@
-const instagramPosts: string[] = [
-  // Mets ici les liens des posts Instagram (publics)
-  // Exemple :
-  // "https://www.instagram.com/p/XXXXXXXXXXX/",
-]
+import { Facebook, Instagram } from "lucide-react"
 
-function getPostLabel(url: string) {
-  try {
-    const m = url.match(/instagram\.com\/p\/([^/]+)/i)
-    if (m?.[1]) return `Post ${m[1]}`
-  } catch {
-    // ignore
-  }
-  return "Post Instagram"
-}
-
-export default function About() {
-  const hasPosts = instagramPosts.length > 0
-
+export default function Header() {
   return (
-    <section id="about" className="bg-white text-black py-16 px-8 max-w-4xl mx-auto mt-10">
-      <h2 className="text-3xl font-bold mb-4">
-        <span className="text-orange-600">À propos</span>
-      </h2>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-orange-600/75 backdrop-blur-md">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between text-white">
+        {/* Logo (plus grand + dépasse un peu) */}
+        <a href="#top" className="flex items-center gap-3">
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="h-16 w-auto -mb-6 drop-shadow-lg"
+          />
+        </a>
 
-      <p className="text-lg text-gray-800 leading-relaxed">
-        Auto-entrepreneur spécialisé dans le bien-être et la récupération, je propose des séances adaptées à vos besoins :
-        massage détente, massage sportif, reboutement et soins énergétiques. Chaque rendez-vous est réalisé avec écoute,
-        respect et personnalisation, pour vous aider à retrouver confort et équilibre.
-      </p>
+        {/* Navigation */}
+        <nav className="hidden md:flex items-center gap-6 text-sm font-semibold">
+          <a className="hover:text-orange-200" href="#about">
+            À propos
+          </a>
+          <a className="hover:text-orange-200" href="#services">
+            Prestations
+          </a>
+          <a className="hover:text-orange-200" href="#contact">
+            Contact
+          </a>
+        </nav>
 
-      {/* Instagram */}
-      <div className="mt-12">
-        <div className="flex items-end justify-between gap-4 flex-wrap">
-          <h3 className="text-2xl font-semibold text-orange-700">Instagram</h3>
+        {/* Socials */}
+        <div className="flex items-center gap-3">
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-lg hover:bg-orange-500/40 text-white"
+            aria-label="Facebook"
+          >
+            <Facebook className="w-5 h-5" />
+          </a>
 
-          {/* Remplace le lien par le vrai compte Instagram */}
           <a
             href="https://www.instagram.com/bisonblanc7/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-semibold text-orange-600 hover:text-orange-700 underline visited:text-orange-600"
+            className="p-2 rounded-lg hover:bg-orange-500/40 text-white"
+            aria-label="Instagram"
           >
-            Voir le compte
+            <Instagram className="w-5 h-5" />
           </a>
         </div>
-
-        {!hasPosts ? (
-          <p className="mt-4 text-sm text-gray-600 italic">
-            Plus de poste viendrons par le future.
-          </p>
-        ) : (
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {instagramPosts.map((url, idx) => (
-              <a
-                key={idx}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block rounded-2xl bg-orange-50 border border-orange-100 p-6 hover:shadow-md transition visited:text-inherit"
-              >
-                <p className="font-semibold text-gray-800">{getPostLabel(url)}</p>
-                <p className="mt-2 text-sm text-gray-600">Ouvrir sur Instagram</p>
-                <p className="mt-3 text-xs text-gray-400 break-all">{url}</p>
-              </a>
-            ))}
-          </div>
-        )}
       </div>
-    </section>
+    </header>
   )
 }
