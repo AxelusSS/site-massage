@@ -1,10 +1,10 @@
 import Hero from '../components/Hero'
 import About from '../components/About'
-import Associes from '../components/Associes'
+import Associes from '../components/Services'
 import ContactForm from '../components/ContactForm'
 import Header from '../components/Header'
 import NosOffres from '../components/NosOffres'
-import TrustedBy from '../components/TrustBy'
+
 
 
 export default function Home() {
@@ -21,9 +21,7 @@ export default function Home() {
       <div id="tarifs" className="pt-24">
         <NosOffres />
       </div>
-
-      <TrustedBy />
-
+      
       <div id="contact" className="pt-24">
         <ContactForm />
       </div>
