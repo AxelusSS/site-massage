@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { FileText } from 'lucide-react'
 import Home from './pages/Home'
 import Loader from './components/Loader'
-import FloatingYoutubePlayer from "./components/FloatingYoutubePlayer"
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -17,7 +16,6 @@ function App() {
   return (
     <>
       <Home />
-      <FloatingYoutubePlayer />
       <DocsButton />
     </>
   )
