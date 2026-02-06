@@ -1,9 +1,9 @@
 import Hero from '../components/Hero'
-import Doc from '../components/Doc'
+
 import ContactForm from '../components/ContactForm'
 import Header from '../components/Header'
 
-import TrustedBy from '../components/TrustBy'
+
 
 
 export default function Docs() {
@@ -12,9 +12,6 @@ export default function Docs() {
       <Header />
       <Hero />
       
-      <Doc />
-
-      <TrustedBy />
 
       <div id="contact" className="pt-24">
         <ContactForm />
