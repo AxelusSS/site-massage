@@ -1,5 +1,5 @@
-const PHONE_DISPLAY = "06 12 34 56 78"
-const PHONE_TEL = "+33612345678"
+const PHONE_DISPLAY = "06 34 12 26 43"
+const PHONE_TEL = "+33634122643"
 
 export default function ContactPhone() {
   return (
